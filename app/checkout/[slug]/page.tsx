@@ -3,7 +3,7 @@ import Footer from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
-// This would typically come from an API or database
+
 const getCourseDetails = (slug: string) => {
   const courses = {
     "qudurat": {
@@ -14,7 +14,6 @@ const getCourseDetails = (slug: string) => {
       title: "Tahseeli",
       price: 149.99,
     },
-    // Add more courses as needed
   };
   return courses[slug as keyof typeof courses];
 };

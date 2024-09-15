@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
 
-// This would typically come from an API or database
 const getCourseDetails = (slug: string) => {
   const courses = {
     "qudurat": {
@@ -23,7 +22,6 @@ const getCourseDetails = (slug: string) => {
       duration: "10 weeks",
       level: "Advanced",
     },
-    // Add more courses as needed
   };
   return courses[slug as keyof typeof courses];
 };
