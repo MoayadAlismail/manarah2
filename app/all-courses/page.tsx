@@ -1,30 +1,43 @@
-import { Main, Section, Container } from "@/components/craft";
-import Footer from "@/components/footer";
-import CourseItem from "@/components/CourseItem";
-import { Button } from "@/components/ui/button";
+import { Main, Section, Container } from "@/app/components/craft";
+import Footer from "@/app/components/footer";
+import CourseItem from "@/app/components/CourseItem";
+import { Button } from "@/app/components/ui/button";
 
 const courses = [
   {
-    title: "Qudurat",
-    description: "Learn from the man himself, Othman",
-    imageUrl: "/images/web-dev.jpg",
-    slug: "qudurat",
+    title: "إتقان القدرات",
+    description: "أطلق العنان لإمكاناتك وتفوق في اختبار القدرات مع دورتنا الشاملة.",
+    imageUrl: "/images/1.png",
+    slug: "qudurat-mastery",
   },
   {
-    title: "Tahseeli",
-    description:  "Learn from the man himself, Othman",
-    imageUrl: "/images/react.jpg",
-    slug: "tahseeli",
+    title: "التميز في التحصيلي",
+    description: "ارفع درجاتك في التحصيلي وافتح أبواب أفضل الجامعات السعودية.",
+    imageUrl: "/images/2.png",
+    slug: "tahsili-excellence",
+  },
+  {
+    title: "ورشة كتابة المقالات",
+    description: "صمم مقالات مقنعة تجعل طلبك يتميز عن بقية المتقدمين.",
+    imageUrl: "/images/3.png",
+    slug: "essay-writing-workshop",
+  },
+  {
+    title: "معسكر التقديم للجامعات",
+    description: "تنقل بثقة وتوجيه خبير خلال عملية التقديم المعقدة.",
+    imageUrl: "/images/4.png",
+    slug: "application-bootcamp",
   },
 ];
 
 export default function AllCourses() {
   return (
     <Main className="bg-white text-black font-alexandria">
-      <Section>
-        <Container>
-          <h1 className="text-3xl font-bold mb-6">All Courses</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <Section className="py-12">
+        <Container className="text-right">
+          <h1 className="text-4xl font-bold mb-4 pt-24">عزز مستقبلك</h1>
+          <p className="text-xl mb-8">انضم إلى دوراتنا التي يقودها خبراء للتفوق في الاختبارات الموحدة والقبول بالجامعات في المملكة العربية السعودية.</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {courses.map((course) => (
               <CourseItem key={course.slug} {...course} />
             ))}

@@ -8,8 +8,9 @@ import { Button } from "./ui/button"
 import { NavigationMenu, NavigationMenuLink, NavigationMenuList } from "./ui/navigation-menu"
 // import ModeToggle from "../mode-toggle"
 import { SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet"
-// import ModeToggle from "./mode-toggle"
+import Image from 'next/image'; // Ensure to import Image
 
+// ... existing code ...
 
 export function NavBar() {
 
@@ -22,35 +23,35 @@ export function NavBar() {
                     </SheetTrigger>
                     <SheetContent side="left">
                         <SheetHeader>
-                            <SheetTitle>fabrika.</SheetTitle>
-                            <SheetDescription>
-                                Scale and launch products with expert developers, on-demand, at a flat monthly fee
+                            <Image src="/logo.png" alt="Logo" width={150} height={40} className="h-auto" />
+                            <SheetDescription className="font-alexandria">
+                                منصة للتوجيه والتعلم مع خبراء في مجالات متعددة.
                             </SheetDescription>
                         </SheetHeader>
                         <div className="flex flex-col space-y-3 mt-[1rem] z-[99]">
                             <DialogClose asChild>
                                 <Link href="/">
-                                    <Button variant="outline" className="w-full">Home</Button>
+                                    <Button variant="outline" className="w-full font-alexandria">الرئيسية</Button>
                                 </Link>
                             </DialogClose>
                             <DialogClose asChild>
-                                <Link href="/software">
-                                    <Button variant="outline" className="w-full">Software</Button>
+                                <Link href="/courses">
+                                    <Button variant="outline" className="w-full font-alexandria">الدورات</Button>
                                 </Link>
                             </DialogClose>
                             <DialogClose asChild>
-                                <Link href="/automation">
-                                    <Button variant="outline" className="w-full">Automation</Button>
+                                <Link href="/mentors">
+                                    <Button variant="outline" className="w-full font-alexandria">المرشدون</Button>
+                                </Link>
+                            </DialogClose>
+                            <DialogClose asChild>
+                                <Link href="/consultations">
+                                    <Button variant="outline" className="w-full font-alexandria">الاستشارات</Button>
                                 </Link>
                             </DialogClose>
                             <DialogClose asChild>
                                 <Link href="/blog">
-                                    <Button variant="outline" className="w-full">Blog</Button>
-                                </Link>
-                            </DialogClose>
-                            <DialogClose asChild>
-                                <Link href="/projects">
-                                    <Button variant="outline" className="w-full">Projects</Button>
+                                    <Button variant="outline" className="w-full font-alexandria">المدونة</Button>
                                 </Link>
                             </DialogClose>
                             {/* <ModeToggle /> */}
@@ -60,22 +61,23 @@ export function NavBar() {
                 <NavigationMenu>
                     <NavigationMenuList className="max-[825px]:hidden ">
                         <Link href="/" className="pl-2">
-                            <h1 className="font-bold">fabrika.</h1>
+                            {/* <h1 className="font-bold font-alexandria">فابريكا.</h1> */}
+                            <Image src="/logo.png" alt="Logo" width={60} height={40} className="h-auto" />
                         </Link>
                     </NavigationMenuList>
                 </NavigationMenu>
                 <div className="flex items-center gap-2 max-[825px]:hidden">
-                    <Link href="/software">
-                        <Button variant="ghost">Software</Button>
+                    <Link href="/courses">
+                        <Button variant="ghost" className="font-alexandria">الدورات</Button>
                     </Link>
-                    <Link href="/automation">
-                        <Button variant="ghost">Automation</Button>
+                    <Link href="/mentors">
+                        <Button variant="ghost" className="font-alexandria">المرشدون</Button>
+                    </Link>
+                    <Link href="/consultations">
+                        <Button variant="ghost" className="font-alexandria">الاستشارات</Button>
                     </Link>
                     <Link href="/blog">
-                        <Button variant="ghost">Blog</Button>
-                    </Link>
-                    <Link href="/projects">
-                        <Button variant="ghost">Projects</Button>
+                        <Button variant="ghost" className="font-alexandria">المدونة</Button>
                     </Link>
                     {/* <ModeToggle /> */}
                 </div>
@@ -115,7 +117,7 @@ const Navbar = () => {
     return (
         <nav>
             {/* ... existing nav items */}
-            <Link href="/all-courses">All Courses</Link>
+            <Link href="/all-courses">جميع الدورات</Link>
             {/* ... other nav items */}
         </nav>
     );

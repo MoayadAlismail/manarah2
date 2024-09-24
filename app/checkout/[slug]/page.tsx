@@ -1,6 +1,6 @@
-import { Main, Section, Container } from "@/components/craft";
-import Footer from "@/components/footer";
-import { Button } from "@/components/ui/button";
+import { Main, Section, Container } from "@/app/components/craft";
+import Footer from "@/app/components/footer";
+import { Button } from "@/app/components/ui/button";
 import Link from "next/link";
 
 

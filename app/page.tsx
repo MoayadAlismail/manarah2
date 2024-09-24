@@ -1,8 +1,8 @@
-import { Main, Section, Container } from "@/components/craft";
-import Hero from "@/components/homepage/hero";
-import Feature from "@/components/features";
-import FAQ from "@/components/faq";
-import Footer from "@/components/footer";
+import { Main, Section, Container } from "@/app/components/craft";
+import Hero from "@/app/components/homepage/hero";
+import Feature from "@/app/components/features";
+import FAQ from "@/app/components/faq";
+import Footer from "@/app/components/footer";
 
 export default function Home() {
   return (
