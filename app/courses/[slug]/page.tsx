@@ -1,58 +1,99 @@
-import { Main, Section, Container } from "@/app/components/craft";
-import Footer from "@/app/components/footer";
-import { Button } from "@/app/components/ui/button";
+import { Main, Section, Container } from "@/components/craft";
+import Footer from "@/components/footer";
 import Link from "next/link";
 import Image from "next/image";
+import { notFound } from 'next/navigation';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { RainbowButton } from "@/components/ui/rainbow-button";
+import coursesData from "@/app/all-courses/courses.json";
 
-const getCourseDetails = (slug: string) => {
-  const courses = {
-    "qudurat": {
-      title: "القدرات",
-      description: "تعلم من الأفضل.",
-      imageUrl: "/images/3.jpg",
-      fullDescription: "تغطي هذه الدورة الشاملة أساسيات اختبار القدرات، بما في ذلك الجزء اللفظي والكمي. مثالية للطلاب الذين يستعدون لاختبار القدرات للقبول في الجامعات السعودية.",
-      duration: "8 أسابيع",
-      level: "مبتدئ",
-    },
-    "tahseeli": {
-      title: "التحصيلي",
-      description: "أتقن التحصيلي.",
-      imageUrl: "/images/2.jpg",
-      fullDescription: "ارفع مستوى مهاراتك في اختبار التحصيلي مع هذه الدورة المتقدمة. تعلم عن المفاهيم الأساسية، وحل المشكلات، وتقنيات الاختبار. مثالية للطلاب الذين يسعون للحصول على درجات عالية في التحصيلي.",
-      duration: "10 أسابيع",
-      level: "متقدم",
-    },
+interface CoursePageProps {
+  params: {
+    slug: string;
   };
-  return courses[slug as keyof typeof courses];
+}
+
+const getCourseData = (slug: string) => {
+  return coursesData.courses.find(course => course.slug === slug);
 };
 
-export default function CourseDetails({ params }: { params: { slug: string } }) {
-  const course = getCourseDetails(params.slug);
+export default function CoursePage({ params }: CoursePageProps) {
+  const { slug } = params;
+  
+  if (!slug) {
+    notFound();
+  }
 
-  if (!course) {
-    return <div>لم يتم العثور على الدورة</div>;
+  const courseData = getCourseData(slug);
+
+  if (!courseData) {
+    notFound();
   }
 
   return (
-    <Main className="bg-white text-black font-alexandria" dir="rtl">
+    <Main className="bg-white text-black text-right font-alexandria text-right">
+      <Section className="relative h-[300px]">
+        <Image 
+          src={courseData.imageUrl} 
+          alt={courseData.title} 
+          layout="fill" 
+          objectFit="cover" 
+          className="absolute inset-0"
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <h1 className="text-4xl font-bold text-white">{courseData.title}</h1>
+        </div>
+      </Section>
+
       <Section>
-        <Container>
-          <div className="max-w-3xl mx-auto">
-            <Image src={course.imageUrl} alt={course.title} width={800} height={400} className="w-full object-cover h-64 rounded-lg mb-6" />
-            <h1 className="text-3xl font-bold mb-4 text-right">{course.title}</h1>
-            <p className="text-gray-600 mb-6 text-right">{course.fullDescription}</p>
-            <div className="mb-6 text-right">
-              <p><strong>المدة:</strong> {course.duration}</p>
-              <p><strong>المستوى:</strong> {course.level}</p>
+        <Container className="py-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div>
+              <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
+                <h3 className="text-xl font-bold mb-4">تفاصيل الدورة</h3>
+                <p className="mb-2"><strong>المدرس:</strong> {courseData.instructor || "غير محدد"}</p>
+                <p className="mb-6"><strong>المدة:</strong> {courseData.duration || "غير محددة"}</p>
+                <Link href={`/checkout/${encodeURIComponent(slug)}`}>
+                <RainbowButton>
+                  سجل الآن
+                </RainbowButton>
+                </Link>
+              </div>
             </div>
-            <div className="text-right">
-              <Button asChild>
-                <Link href={`/checkout/${params.slug}`}>سجل الآن</Link>
-              </Button>
+            
+            <div className="md:col-span-2">
+              <h2 className="text-2xl font-bold mb-4">وصف الدورة</h2>
+              <p className="mb-8 text-black-700">{courseData.description}</p>
+
+              {courseData.features && courseData.features.length > 0 && (
+                <>
+                  <h2 className="text-2xl font-bold mb-4">مميزات الدورة</h2>
+                  <ul className="list-disc list-inside mb-8 text-700">
+                    {courseData.features.map((feature, index) => (
+                      <li key={index}>{feature}</li>
+                    ))}
+                  </ul>
+                </>
+              )}
+
+              {courseData.faq && courseData.faq.length > 0 && (
+                <>
+                  <h2 className="text-2xl font-bold mb-4">الأسئلة الشائعة</h2>
+                  <Accordion type="single" collapsible className="mb-8">
+                    {courseData.faq.map((item, index) => (
+                      <AccordionItem key={index} value={`item-${index}`}>
+                        <AccordionTrigger className="text-right font-semibold">{item.question}</AccordionTrigger>
+                        <AccordionContent className="text-black-700">{item.answer}</AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </>
+              )}
             </div>
           </div>
         </Container>
       </Section>
+
       <Footer />
     </Main>
   );

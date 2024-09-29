@@ -1,64 +1,105 @@
-import { Main, Section, Container } from "@/app/components/craft";
-import Footer from "@/app/components/footer";
-import { Button } from "@/app/components/ui/button";
-import Link from "next/link";
+"use client";
 
+import { useState } from 'react';
+import Image from 'next/image';
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { notFound } from 'next/navigation';
+import coursesData from '../../all-courses/courses.json'; // Import the JSON data
 
-const getCourseDetails = (slug: string) => {
-  const courses = {
-    "qudurat": {
-      title: "Qudurat",
-      price: 99.99,
-    },
-    "tahseeli": {
-      title: "Tahseeli",
-      price: 149.99,
-    },
+interface CheckoutPageProps {
+  params: {
+    slug: string;
   };
-  return courses[slug as keyof typeof courses];
+}
+
+const getCourseData = (slug: string) => {
+  const course = coursesData.courses.find(course => course.slug === slug); // Find the course by slug
+  if (course) {
+    return {
+      title: course.title,
+      price: 999, // Price in cents (update as needed)
+      imageUrl: course.imageUrl,
+    };
+  }
+  return null; // Return null if course not found
 };
 
-export default function Checkout({ params }: { params: { slug: string } }) {
-  const course = getCourseDetails(params.slug);
+const CheckoutForm = ({ courseData }: { courseData: { title: string; price: number } }) => {
+  const [processing, setProcessing] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  if (!course) {
-    return <div>Course not found</div>;
-  }
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setProcessing(true);
+    setError(null);
+
+    try {
+      const response = await fetch('/api/create-charge', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          amount: courseData.price,
+          currency: 'SAR',
+          description: `Payment for ${courseData.title}`,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Payment failed');
+      }
+
+      const data = await response.json();
+      console.log('Payment successful', data);
+      // Redirect to success page or show success message
+    } catch (err) {
+      setError('فشلت عملية الدفع. يرجى المحاولة مرة أخرى.');
+      console.error('Payment error:', err);
+    } finally {
+      setProcessing(false);
+    }
+  };
 
   return (
-    <Main className="bg-white text-black font-alexandria">
-      <Section>
-        <Container>
-          <div className="max-w-2xl mx-auto">
-            <h1 className="text-3xl font-bold mb-6">Checkout</h1>
-            <div className="bg-gray-100 p-6 rounded-lg mb-6">
-              <h2 className="text-xl font-semibold mb-2">{course.title}</h2>
-              <p className="text-2xl font-bold">${course.price.toFixed(2)}</p>
-            </div>
-            <form className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block mb-1">Full Name</label>
-                <input type="text" id="name" className="w-full p-2 border rounded" required />
-              </div>
-              <div>
-                <label htmlFor="email" className="block mb-1">Email</label>
-                <input type="email" id="email" className="w-full p-2 border rounded" required />
-              </div>
-              <div>
-                <label htmlFor="card" className="block mb-1">Card Number</label>
-                <input type="text" id="card" className="w-full p-2 border rounded" required />
-              </div>
-              <Button type="submit" className="w-full">Complete Purchase</Button>
-            </form>
-            <div className="mt-4 text-center">
-              <Link href={`/courses/${params.slug}`} className="text-blue-500 hover:underline">
-                Back to course details
-              </Link>
-            </div>
-          </div>
-        </Container>
-      </Section>
-      <Footer />
-    </Main>
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <Input className="text-right p-4 text-black" type="text" placeholder="الاسم الكامل" required />
+      <Input className="text-right p-4 text-black" type="email" placeholder="البريد الإلكتروني" required />
+      <Input className="text-right p-4 text-black" type="tel" placeholder="رقم الهاتف" required />
+      {error && <div className="text-red-500 text-right">{error}</div>}
+      <Button type="submit" disabled={processing} className="w-full">
+        {processing ? 'جاري المعالجة...' : `ادفع ${courseData.price / 100} ريال`}
+      </Button>
+    </form>
+  );
+};
+
+export default function CheckoutPage({ params }: CheckoutPageProps) {
+  const { slug } = params;
+  
+  if (!slug) {
+    notFound();
+  }
+
+  const courseData = getCourseData(slug);
+
+  return (
+    <div className="flex h-screen font-alexandria text-black">
+      <div className="w-1/2 relative">
+        <Image 
+          src={courseData.imageUrl} 
+          alt={courseData.title}
+          layout="fill"
+          objectFit="cover"
+        />
+      </div>
+      <div className="w-1/2 bg-white p-12 flex flex-col justify-center">
+        <div className="max-w-md mx-auto w-full">
+          <h1 className="text-3xl font-bold mb-6 text-right">الدفع لدورة: {courseData.title}</h1>
+          <CheckoutForm courseData={courseData} />
+        </div>
+      </div>
+    </div>
   );
 }
