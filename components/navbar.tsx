@@ -40,7 +40,7 @@ export function NavBar() {
                     </Link>
                             </DialogClose>
                             <DialogClose asChild>
-                            <Link href="/book-session">
+                            <Link href="/">
                         <Button variant="ghost" className="font-alexandria">الجلسات الاستشارية</Button>
                     </Link>
                             </DialogClose>
@@ -70,7 +70,7 @@ export function NavBar() {
                     <Link href="/all-courses">
                         <Button variant="ghost" className="font-alexandria">الدورات</Button>
                     </Link>
-                    <Link href="/book-session">
+                    <Link href="/">
                         <Button variant="ghost" className="font-alexandria">الجلسات الاستشارية</Button>
                     </Link>
                     <Link href="/essay-editing">
