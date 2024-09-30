@@ -43,7 +43,7 @@ export function NavBar() {
                             <Link href="/">
                         <Button variant="ghost" className="font-alexandria">الجلسات الاستشارية</Button>
                     </Link>
-                            </DialogClose>
+                            </DialogClose >
                             <DialogClose asChild>
                             <Link href="/essay-editing">
                         <Button variant="ghost" className="font-alexandria">مقالات التقديم</Button>
