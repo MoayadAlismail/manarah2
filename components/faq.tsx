@@ -1,11 +1,11 @@
-import { Section, Container } from "@/app/components/craft";
+import { Section, Container } from "@/components/craft";
 import { ArrowUpLeft } from "lucide-react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/app/components/ui/accordion";
+} from "@/components/ui/accordion";
 
 type FAQItem = {
   question: string;
@@ -40,7 +40,7 @@ const content: FAQItem[] = [
 const FAQ = () => {
   return (
     <Section>
-      <Container className="text-right" dir="rtl">
+      <Container className="text-right">
         <h3 className="!mt-0">الأسئلة الشائعة</h3>
         <h4 className="text-muted-foreground">
           لم تجد الإجابة التي تبحث عنها؟ تواصل مع فريق دعم العملاء لدينا.

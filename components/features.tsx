@@ -47,7 +47,7 @@ const singleFeatureText: FeatureText[] = [
 const Feature = () => {
   return (
     <Section>
-      <Container className="not-prose" dir="rtl">
+      <Container className="not-prose">
         <div className="flex flex-col gap-6">
           <h3 className="text-4xl text-right font-bold">
             <Balancer>

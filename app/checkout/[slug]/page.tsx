@@ -88,16 +88,16 @@ export default function CheckoutPage({ params }: CheckoutPageProps) {
     <div className="flex h-screen font-alexandria text-black">
       <div className="w-1/2 relative">
         <Image 
-          src={courseData.imageUrl} 
-          alt={courseData.title}
+          src={courseData?.imageUrl || '/path/to/default/1.jpg'} 
+          alt={courseData?.title || 'Default Title'}
           layout="fill"
           objectFit="cover"
         />
       </div>
       <div className="w-1/2 bg-white p-12 flex flex-col justify-center">
         <div className="max-w-md mx-auto w-full">
-          <h1 className="text-3xl font-bold mb-6 text-right">الدفع لدورة: {courseData.title}</h1>
-          <CheckoutForm courseData={courseData} />
+          <h1 className="text-3xl font-bold mb-6 text-right">الدفع لدورة: {courseData?.title}</h1>
+          <CheckoutForm courseData={courseData || { title: '', price: 0 }} />
         </div>
       </div>
     </div>

@@ -22,7 +22,7 @@ export default function Home() {
               )}
             />
           <Hero />
-          <Feature id="features"/>
+          <Feature/>
           <Testimonials />
         </Container>
       </Section>
