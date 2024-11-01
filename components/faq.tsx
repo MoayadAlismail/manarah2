@@ -1,11 +1,19 @@
-import { Section, Container } from "@/components/craft";
-import { ArrowUpLeft } from "lucide-react";
+// React and Next.js imports
+import React from "react";
+
+// Third-party library imports
+import { ArrowUpRight } from "lucide-react";
+
+// UI component imports
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+
+// Custom components
+import { Section, Container } from "@/components/craft";
 
 type FAQItem = {
   question: string;
@@ -40,29 +48,24 @@ const content: FAQItem[] = [
 const FAQ = () => {
   return (
     <Section>
-      <Container className="text-right">
-        <h3 className="!mt-0">الأسئلة الشائعة</h3>
-        <h4 className="text-muted-foreground">
+      <Container>
+        <h1 className="text-4xl font-bold mb-4 text-center">الأسئلة الشائعة</h1>
+        <h4 className="text-muted-foreground text-center" dir="rtl">
           لم تجد الإجابة التي تبحث عنها؟ تواصل مع فريق دعم العملاء لدينا.
         </h4>
-        <div className="not-prose mt-4 flex flex-col gap-4 md:mt-8">
+        <div className="not-prose flex flex-col gap-4 mt-12 mb-24" dir="rtl">
           {content.map((item, index) => (
             <Accordion key={index} type="single" collapsible>
-              <AccordionItem value={item.question}>
-                <AccordionTrigger className="text-right">
-                  {item.question}
+              <AccordionItem
+                value={item.question}
+                className="rounded-md border bg-muted/20 px-4 transition-all hover:bg-muted/50"
+              >
+                <AccordionTrigger className="flex items-center justify-between text-right hover:no-underline">
+                  <span>{item.question}</span>
+                  <div className="ml-2"> {/* Added margin to the left of the arrow */} </div>
                 </AccordionTrigger>
-                <AccordionContent className="text-base md:w-3/4 mr-auto">
+                <AccordionContent className="text-base md:w-3/4 text-right">
                   {item.answer}
-                  {item.link && (
-                    <a
-                      href={item.link}
-                      className="mt-2 flex w-full items-center justify-end opacity-60 transition-all hover:opacity-100"
-                    >
-                      <ArrowUpLeft className="ml-1" size="16" />
-                      اعرف المزيد
-                    </a>
-                  )}
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

@@ -3,39 +3,39 @@ import Marquee from "@/components/ui/marquee";
 
 const reviews = [
   {
-    name: "جاك", // Jack
+    name: "محمد", // Jack
     username: "@jack",
-    body: "لم أرَ شيئًا مثل هذا من قبل. إنه مذهل. أحب ذلك.", // "I've never seen anything like this before. It's amazing. I love it."
+    body: "ولدي يمدح هذي الدورة", // "I've never seen anything like this before. It's amazing. I love it."
     img: "https://avatar.vercel.sh/jack",
   },
   {
-    name: "جيل", // Jill
+    name: "نورة", // Jill
     username: "@jill",
-    body: "لا أعرف ماذا أقول. أنا بلا كلمات. هذا مذهل.", // "I don't know what to say. I'm speechless. This is amazing."
+    body: "سجلت أنا وصديقاتي وكلنا استفدنا", // "I don't know what to say. I'm speechless. This is amazing."
     img: "https://avatar.vercel.sh/jill",
   },
   {
-    name: "جون", // John
+    name: "علي", // John
     username: "@john",
-    body: "أنا في حيرة من أمري. هذا مذهل. أحب ذلك.", // "I'm at a loss for words. This is amazing. I love it."
+    body: "يسوى كل ريال دفعته", // "I'm at a loss for words. This is amazing. I love it."
     img: "https://avatar.vercel.sh/john",
   },
   {
-    name: "جين", // Jane
+    name: "سلمان", // Jane
     username: "@jane",
-    body: "أنا في حيرة من أمري. هذا مذهل. أحب ذلك.", // "I'm at a loss for words. This is amazing. I love it."
+    body: "أسلوبه في الشرح رهيب يضحكني", // "I'm at a loss for words. This is amazing. I love it."
     img: "https://avatar.vercel.sh/jane",
   },
   {
-    name: "جيني", // Jenny
+    name: "عبدالله", // Jenny
     username: "@jenny",
-    body: "أنا في حيرة من أمري. هذا مذهل. أحب ذلك.", // "I'm at a loss for words. This is amazing. I love it."
+    body: "الحمدلله جبت ٩٩ بفضل الله ثم هذي الدورة", // "I'm at a loss for words. This is amazing. I love it."
     img: "https://avatar.vercel.sh/jenny",
   },
   {
     name: "جيمس", // James
     username: "@james",
-    body: "أنا في حيرة من أمري. هذا مذهل. أحب ذلك.", // "I'm at a loss for words. This is amazing. I love it."
+    body: "مررررة استفدت صراحة", // "I'm at a loss for words. This is amazing. I love it."
     img: "https://avatar.vercel.sh/james",
   },
 ];
@@ -46,12 +46,12 @@ const secondRow = reviews.slice(reviews.length / 2);
 const ReviewCard = ({
   img,
   name,
-  username,
+  // username,
   body,
 }: {
   img: string;
   name: string;
-  username: string;
+  // username: string;
   body: string;
 }) => {
   return (
@@ -70,7 +70,7 @@ const ReviewCard = ({
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
           </figcaption>
-          <p className="text-xs font-medium dark:text-white/40">{username}</p>
+          {/* <p className="text-xs font-medium dark:text-white/40">{username}</p> */}
         </div>
       </div>
       <blockquote className="mt-2 text-sm">{body}</blockquote>
@@ -82,7 +82,7 @@ export function MarqueeDemo() {
   return (
     // <main className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl">
     <main className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden">
-        <h1 className="text-4xl font-bold mb-4 pt-24 mb-12">آراء طلابنا</h1>
+        <h1 className="text-4xl font-bold pt-24 mb-12">آراء طلابنا</h1>
       <Marquee pauseOnHover className="[--duration:50s]">
         {firstRow.map((review) => (
             <ReviewCard key={review.username} {...review} />

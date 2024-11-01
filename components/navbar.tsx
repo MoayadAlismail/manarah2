@@ -9,6 +9,7 @@ import { NavigationMenu, NavigationMenuLink, NavigationMenuList } from "./ui/nav
 // import ModeToggle from "../mode-toggle"
 import { SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "./ui/sheet"
 import Image from 'next/image'; // Ensure to import Image
+import { smoothScroll } from "@/utils/smoothScroll"; // Adjust the path as necessary
 
 // ... existing code ...
 
@@ -30,24 +31,24 @@ export function NavBar() {
                         </SheetHeader>
                         <div className="flex flex-col space-y-3 mt-[1rem] z-[99]">
                             <DialogClose asChild>
-                                <Link href="/">
-                                    <Button variant="outline" className="w-full font-alexandria">الرئيسية</Button>
-                                </Link>
+                                <Button variant="outline" className="w-full font-alexandria" onClick={() => smoothScroll("#home")}>
+                                    الرئيسية
+                                </Button>
                             </DialogClose>
                             <DialogClose asChild>
-                            <Link href="/all-courses">
-                        <Button variant="ghost" className="font-alexandria">الدورات</Button>
-                    </Link>
+                            <Button variant="ghost" className="font-alexandria" onClick={() => smoothScroll("#courses")}>
+                            الدورات
+                            </Button>
                             </DialogClose>
                             <DialogClose asChild>
-                            <Link href="/">
-                        <Button variant="ghost" className="font-alexandria">الجلسات الاستشارية</Button>
-                    </Link>
+                            <Button variant="ghost" className="font-alexandria" onClick={() => smoothScroll("#testimonials")}>
+                            آراء الطلاب
+                            </Button>
                             </DialogClose >
                             <DialogClose asChild>
-                            <Link href="/essay-editing">
-                        <Button variant="ghost" className="font-alexandria">مقالات التقديم</Button>
-                    </Link>
+                            <Button variant="ghost" className="font-alexandria" onClick={() => smoothScroll("#faq")}>
+                            الأسئلة الشائعة
+                            </Button>
                             </DialogClose>
                             {/* <DialogClose asChild> */}
                                 {/* <Link href="/blog">
@@ -67,14 +68,14 @@ export function NavBar() {
                     </NavigationMenuList>
                 </NavigationMenu>
                 <div className="flex items-center gap-2 max-[825px]:hidden">
-                    <Link href="/all-courses">
-                        <Button variant="ghost" className="font-alexandria">الدورات</Button>
+                    <Link href="#faq">
+                        <Button variant="ghost" className="font-alexandria">الأسئلة الشائعة</Button>
                     </Link>
-                    <Link href="/">
-                        <Button variant="ghost" className="font-alexandria">الجلسات الاستشارية</Button>
+                    <Link href="#testimonials">
+                        <Button variant="ghost" className="font-alexandria">آراء الطلاب</Button>
                     </Link>
-                    <Link href="/essay-editing">
-                        <Button variant="ghost" className="font-alexandria">مقالات التقديم</Button>
+                    <Link href="#features">
+                        <Button variant="ghost" className="font-alexandria">مميزات الدورة</Button>
                     </Link>
                     {/* <ModeToggle /> */}
                 </div>
