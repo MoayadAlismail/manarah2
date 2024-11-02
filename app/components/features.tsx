@@ -1,6 +1,6 @@
 "use client"
 // Layout
-import { Section, Container } from "@/components/craft";
+import { Section, Container } from "@/app/components/craft";
 import Balancer from "react-wrap-balancer";
 import Link from "next/link";
 import { BookOpen, Users, PenTool, GraduationCap, ArrowLeft } from "lucide-react";
@@ -56,12 +56,6 @@ const Feature = () => {
               مميزات الدورة
             </Balancer>
           </h3>
-          {/* <h4 className="text-xl text-muted-foreground text-center z-30">
-            <Balancer>
-              انضم إلى دوراتنا المتخصصة وورش العمل لتعزيز فرصك في القبول بأفضل الجامعات
-            </Balancer>
-          </h4> */}
-
           <div className="absolute z-[0] ">
             <Coolshape className="my-4" type="wheel" index={1} noise={true} />
           </div>
@@ -88,6 +82,7 @@ const Feature = () => {
               ),
             )}
           </div>
+
           <div>
             {singleFeatureText.map(
               ({ icon, title, description, href, cta }, index) => (
@@ -111,6 +106,31 @@ const Feature = () => {
               ),
             )}
           </div>
+
+          <div className="grid gap-6 md:grid-cols-2 z-30">
+            {featureText.map(
+              ({ icon, title, description, href, cta }, index) => (
+                <Link
+                  href={`${href}`}
+                  className="flex flex-col justify-between gap-6 rounded-lg border p-6 transition-all hover:-mt-2 hover:mb-2 text-right"
+                  key={index}
+                >
+                  <div className="grid gap-4">
+                    <div className="flex justify-end">{icon}</div>
+                    <h4 className="text-xl text-primary font-bold">{title}</h4>
+                    <p className="text-base opacity-75">{description}</p>
+                  </div>
+                  {cta && (
+                    <div className="flex h-fit items-center text-sm font-semibold justify-end">
+                      {/* <ArrowLeft className="ml-2 h-4 w-4" /> */}
+                      {/* <p>{cta}</p> */}
+                    </div>
+                  )}
+                </Link>
+              ),
+            )}
+          </div>
+
         </div>
       </Container>
     </Section>

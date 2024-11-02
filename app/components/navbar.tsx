@@ -24,7 +24,7 @@ export function NavBar() {
                     </SheetTrigger>
                     <SheetContent side="left">
                         <SheetHeader>
-                            <Image src="/logo.png" alt="Logo" width={150} height={40} className="h-auto" />
+                            <Image src="/qudrah_logo.png" alt="Logo" width={150} height={40} className="h-auto" />
                             <SheetDescription className="font-alexandria">
                                 منصة للتوجيه والتعلم مع خبراء في مجالات متعددة.
                             </SheetDescription>
@@ -63,18 +63,18 @@ export function NavBar() {
                     <NavigationMenuList className="max-[825px]:hidden ">
                         <Link href="/" className="pl-2">
                             {/* <h1 className="font-bold font-alexandria">فابريكا.</h1> */}
-                            <Image src="/logo.png" alt="Logo" width={60} height={40} className="h-auto" />
+                            <Image src="/qudrah_logo.png" alt="Logo" width={60} height={40} className="h-auto" />
                         </Link>
                     </NavigationMenuList>
                 </NavigationMenu>
                 <div className="flex items-center gap-2 max-[825px]:hidden">
-                    <Link href="#faq">
+                    <Link href="/#faq">
                         <Button variant="ghost" className="font-alexandria">الأسئلة الشائعة</Button>
                     </Link>
-                    <Link href="#testimonials">
+                    <Link href="/#testimonials">
                         <Button variant="ghost" className="font-alexandria">آراء الطلاب</Button>
                     </Link>
-                    <Link href="#features">
+                    <Link href="/#features">
                         <Button variant="ghost" className="font-alexandria">مميزات الدورة</Button>
                     </Link>
                     {/* <ModeToggle /> */}

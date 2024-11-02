@@ -6,13 +6,13 @@ import Link from "next/link";
 import Balancer from "react-wrap-balancer";
 
 // UI component imports
-import { Button } from "@/components/ui/button";
+import { Button } from "@/app/components/ui/button";
 
 // Icon imports
 import { Instagram, Twitter, Phone } from "lucide-react";
 
 // Local component imports
-import { Section, Container } from "@/components/craft";
+import { Section, Container } from "@/app/components/craft";
 
 // Asset imports
 import Logo from "@/public/logo.png";

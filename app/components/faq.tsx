@@ -10,10 +10,10 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
+} from "@/app/components/ui/accordion";
 
 // Custom components
-import { Section, Container } from "@/components/craft";
+import { Section, Container } from "@/app/components/craft";
 
 type FAQItem = {
   question: string;

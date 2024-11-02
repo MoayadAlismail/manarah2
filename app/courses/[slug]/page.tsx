@@ -1,11 +1,12 @@
-import { Main, Section, Container } from "@/components/craft";
-import Footer from "@/components/footer";
+import { Main, Section, Container } from "@/app/components/craft";
+import Footer from "@/app/components/footer";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from 'next/navigation';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { RainbowButton } from "@/components/ui/rainbow-button";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/components/ui/accordion";
+import { RainbowButton } from "@/app/components/ui/rainbow-button";
 import coursesData from "@/app/all-courses/courses.json";
+import FAQ from "@/app/components/faq";
 
 interface CoursePageProps {
   params: {
@@ -32,7 +33,7 @@ export default function CoursePage({ params }: CoursePageProps) {
 
   return (
     <Main className="bg-white text-black text-right font-alexandria text-right">
-      <Section className="relative h-[300px]">
+      <Section className="relative h-[400px]">
         <Image 
           src={courseData.imageUrl} 
           alt={courseData.title} 
@@ -76,7 +77,7 @@ export default function CoursePage({ params }: CoursePageProps) {
                 </>
               )}
 
-              {courseData.faq && courseData.faq.length > 0 && (
+              {/* {courseData.faq && courseData.faq.length > 0 && (
                 <>
                   <h2 className="text-2xl font-bold mb-4">الأسئلة الشائعة</h2>
                   <Accordion type="single" collapsible className="mb-8">
@@ -88,12 +89,12 @@ export default function CoursePage({ params }: CoursePageProps) {
                     ))}
                   </Accordion>
                 </>
-              )}
+              )} */}
             </div>
           </div>
         </Container>
       </Section>
-
+      <FAQ />
       <Footer />
     </Main>
   );

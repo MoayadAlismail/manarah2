@@ -1,6 +1,6 @@
-import { Main, Section, Container } from "@/components/craft";
-import Footer from "@/components/footer";
-import CourseItem from "@/components/CourseItem";
+import { Main, Section, Container } from "@/app/components/craft";
+import Footer from "@/app/components/footer";
+import CourseItem from "@/app/components/CourseItem";
 import coursesData from "./courses.json";
 
 export default function AllCourses() {

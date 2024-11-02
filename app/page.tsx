@@ -1,15 +1,17 @@
-import { Main, Section, Container } from "@/components/craft";
-import Hero from "@/components/hero";
-import Feature from "@/components/features";
-import Footer from "@/components/footer";
-import GridPattern from "@/components/ui/animated-grid-pattern";
+import { Main, Section, Container } from "@/app/components/craft";
+import Hero from "@/app/components/hero";
+import Feature from "@/app/components/features";
+import Footer from "@/app/components/footer";
+import GridPattern from "@/app/components/ui/animated-grid-pattern";
 import { cn } from "@/lib/utils";
-import Testimonials from "@/components/testimonials";
-import Countdown from "@/components/countdown";
-import FAQ from "@/components/faq";
-import CoolShapesBackground from "@/components/CoolShapesBackground";
-import FinalCTA from "@/components/final-cta";
-import HeroImg from "@/components/hero-img";
+import Testimonials from "@/app/components/testimonials";
+import Countdown from "@/app/components/countdown";
+import FAQ from "@/app/components/faq";
+import CoolShapesBackground from "@/app/components/CoolShapesBackground";
+import FinalCTA from "@/app/components/final-cta";
+import HeroImg from "@/app/components/hero-img";
+// import {ManyFeatures} from "@/app/components/many-features";
+
 
 export default function Home() {
   return (
@@ -56,6 +58,7 @@ export default function Home() {
       </Section>
       
       <FinalCTA/>
+      {/* <ManyFeatures/> */}
       <Footer />
     </Main>
   );

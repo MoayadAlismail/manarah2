@@ -9,10 +9,10 @@ import Balancer from "react-wrap-balancer";
 import { BookOpen } from "lucide-react";
 
 // Local component imports
-import { Section, Container } from "@/components/craft";
-import { Button } from "@/components/ui/button";
+import { Section, Container } from "@/app/components/craft";
+import { Button } from "@/app/components/ui/button";
 import { BorderBeam } from "./ui/border-beam";
-import { RainbowButton } from "@/components/ui/rainbow-button";
+import { RainbowButton } from "@/app/components/ui/rainbow-button";
 
 // Asset imports
 import Logo from "@/public/logo.svg";
