@@ -63,7 +63,7 @@ const Hero = () => {
                   animate={{ scale: 1 }}
                   transition={{ duration: 0.6 }}
                 >
-                  !سجل الآن
+                  !اعرف أكثر
                 </motion.span>
               </Link>
             </RainbowButton>
