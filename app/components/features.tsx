@@ -3,7 +3,7 @@
 import { Section, Container } from "@/app/components/craft";
 import Balancer from "react-wrap-balancer";
 import Link from "next/link";
-import { BookOpen, Users, PenTool, GraduationCap, ArrowLeft } from "lucide-react";
+import { BookOpen, Laptop, MessagesSquare, Wallet, PencilLine, Clock8, Users, PenTool, GraduationCap, ArrowLeft } from "lucide-react";
 import { Coolshape } from "coolshapes-react";
 
 // Icons
@@ -19,29 +19,57 @@ type FeatureText = {
 
 const featureText: FeatureText[] = [
   {
-    icon: <PenTool className="h-6 w-6" />,
-    title: "دورات شاملة",
-    href: "/holistic-courses",
-    description: "دورات تدريبية شاملة تغطي جميع جوانب التعلم العملي.",
+    icon: <Laptop className="h-6 w-6" />,
+    title: "دروس مباشرة",
+    href: "/",
+    description: "تقام الحصص بشكل مباشر عبر منصة زووم وبامكان التفاعل مع المدرب",
     cta: "اعرف أكثر"
   },
   {
-    icon: <Users className="h-6 w-6" />,
-    title: "استشارة شخصية",
-    href: "/book-session",
+    icon: <BookOpen className="h-6 w-6" />,
+    title: "مصادر تعلّم حصرية",
+    href: "/",
     description:
-      "احصل على استشارة شخصية مع أفضل المعلمين لمساعدتك في تحقيق أهدافك.",
+      "تزوّدك الدورة بملفات وواجبات وتمارين تتماشى مع كل درس لضمان تعلّم فعال وسريع",
+    cta: "اعرف أكثر",
+  },
+];
+
+const featureText2: FeatureText[] = [
+  {
+    icon: <Wallet className="h-6 w-6" />,
+    title: "سعر رهيب",
+    href: "/",
+    description: "تشمل ١٥ حصة للقسم اللفظي و١٥ حصة للقسم الكمي، جميعها باجمالي فقط ٣٤٩ ريال",
+    cta: "اعرف أكثر"
+  },
+  {
+    icon: <Clock8 className="h-6 w-6" />,
+    title: "تدريب مكثّف",
+    href: "/",
+    description:
+      "تُقام الدورة على مدى ٣ أسابيع ابتداءً من يوم الأحد ١٧ نوفمبر، مع جلسة يوميًا خلال أيام الأسبوع من ٧:٣٠م حتى ١٠م تغطي قسمي الكمي واللفظي ",
     cta: "اعرف أكثر",
   },
 ];
 
 const singleFeatureText: FeatureText[] = [
   {
-    icon: <BookOpen className="h-6 w-6" />,
-    title: "تدريب عملي",
-    href: "/all-courses",
+    icon: <MessagesSquare className="h-6 w-6" />,
+    title: "مجموعة خاصة",
+    href: "/",
     description:
-      "تقدم هذه الدورة التعليمية تجربة عملية شاملة مع أفضل المعلمين.",
+      "يستضاف جميع المشاركين في الدورة الى مجموعة تليجرام خاصة حيث يمكنهم تبادل الأفكار، طرح الأسئلة، ومناقشة الدروس",
+    cta: "اعرف أكثر"
+  },
+];
+const singleFeatureText2: FeatureText[] = [
+  {
+    icon: <Users className="h-6 w-6" />,
+    title: "مدربين محترفين",
+    href: "/",
+    description:
+      'مدربي هذه الدورة هم نفسهم مؤلفي كتاب "المعاصر" للقدرات، مما يضمن لك الحصول على تعليم من مصادر موثوقة وخبرة لا مثيل لها.',
     cta: "اعرف أكثر"
   },
 ];
@@ -108,11 +136,35 @@ const Feature = () => {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 z-30">
-            {featureText.map(
+            {featureText2.map(
               ({ icon, title, description, href, cta }, index) => (
                 <Link
                   href={`${href}`}
                   className="flex flex-col justify-between gap-6 rounded-lg border p-6 transition-all hover:-mt-2 hover:mb-2 text-right"
+                  key={index}
+                >
+                  <div className="grid gap-4">
+                    <div className="flex justify-end">{icon}</div>
+                    <h4 className="text-xl text-primary font-bold">{title}</h4>
+                    <p className="text-base opacity-75">{description}</p>
+                  </div>
+                  {cta && (
+                    <div className="flex h-fit items-center text-sm font-semibold justify-end">
+                      {/* <ArrowLeft className="ml-2 h-4 w-4" /> */}
+                      {/* <p>{cta}</p> */}
+                    </div>
+                  )}
+                </Link>
+              ),
+            )}
+          </div>
+
+          <div>
+            {singleFeatureText2.map(
+              ({ icon, title, description, href, cta }, index) => (
+                <Link
+                  href={`${href}`}
+                  className="flex flex-col justify-between gap-6 rounded-lg border bg-muted/25 p-6 transition-all hover:-mt-2 hover:mb-2 text-right bg-white"
                   key={index}
                 >
                   <div className="grid gap-4">

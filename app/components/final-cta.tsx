@@ -72,7 +72,7 @@ import Particles from "@/app/components/ui/particles";
             </Balancer>
           </h4>
           <RainbowButton>
-          <Link href={`/courses/${encodeURIComponent("qudurat")}`}>
+          <Link href="https://chat.whatsapp.com/Ir5l5cFA7Q78tfeiMHEkUz">
               !سجل الآن
             </Link>
           </RainbowButton>

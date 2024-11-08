@@ -5,8 +5,8 @@ const ConfirmationPage = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const slug = searchParams.get('slug');
-  const inviteLink = searchParams.get('inviteLink');
+  const slug = searchParams ? searchParams.get('slug') : null;
+  const inviteLink = searchParams ? searchParams.get('inviteLink') : null;
 
   return (
     <div className="flex h-screen justify-center items-center bg-white">

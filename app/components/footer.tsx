@@ -9,7 +9,7 @@ import Balancer from "react-wrap-balancer";
 import { Button } from "@/app/components/ui/button";
 
 // Icon imports
-import { Instagram, Twitter, Phone } from "lucide-react";
+import { Instagram, Twitter, Phone, Mail } from "lucide-react";
 
 // Local component imports
 import { Section, Container } from "@/app/components/craft";
@@ -49,10 +49,10 @@ export default function Footer() {
           <p className="text-muted-foreground">
             جميع الحقوق محفوظة.
             ©{" "}
-            منصة منارة ٢٠٢٤
+            منصة قدرة ٢٠٢٤
           </p>
           <div className="flex gap-2">
-            <Link href="https://instagram.com/ManarahKSA" target="_blank" rel="noopener noreferrer">
+            <Link href="https://instagram.com/QudrahSA" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="icon">
                 <Instagram />
               </Button>
@@ -65,6 +65,11 @@ export default function Footer() {
             <Link href="https://wa.me/966594031391" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="icon">
                 <Phone />
+              </Button>
+            </Link>
+            <Link href="contactqudrah@gmail.com" target="_blank" rel="noopener noreferrer">
+              <Button variant="outline" size="icon">
+                <Mail />
               </Button>
             </Link>
           </div>

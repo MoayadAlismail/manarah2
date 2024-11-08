@@ -6,11 +6,10 @@ import { motion } from "framer-motion";
 
 // Third-party library imports
 import Balancer from "react-wrap-balancer";
-import { BookOpen } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 
 // Local component imports
 import { Section, Container } from "@/app/components/craft";
-import { Button } from "@/app/components/ui/button";
 import { BorderBeam } from "./ui/border-beam";
 import { RainbowButton } from "@/app/components/ui/rainbow-button";
 
@@ -47,7 +46,7 @@ const Hero = () => {
         >
           <Balancer>
             {/* نساعدك في التفوق في اختبارات القدرات والتحصيلي وإعداد ملف قبول متميز */}
-            دورة المعاصر هي كل ما تحتاجه للتفوق في القدرات... سجل قبل ١ نوفمبر
+            حلمك لتحقيق الـ ١٠٠ في القدرات يبدأ هنا
           </Balancer>
         </motion.h3>
         <div className="mt-8 flex justify-center gap-4 md:mt-12">
@@ -56,17 +55,22 @@ const Hero = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <RainbowButton>
-              <Link href={`/courses/${encodeURIComponent("qudurat")}`}>
-                <motion.span
-                  initial={{ scale: 0.8 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.6 }}
+            <Link href={`/courses/${encodeURIComponent("qudurat")}`} passHref>
+              <motion.button
+                className="mt-8 flex text-muted-foreground items-center gap-2"
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.6 }}
+              >
+                <motion.div
+                  animate={{ translateY: [0, -5, 0] }}
+                  transition={{ repeat: Infinity, duration: 2 }}
                 >
-                  !اعرف أكثر
-                </motion.span>
-              </Link>
-            </RainbowButton>
+                  <ArrowDown />
+                </motion.div>
+                اعرف أكثر 
+              </motion.button>
+            </Link>
           </motion.div>
         </div>
 

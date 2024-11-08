@@ -7,7 +7,6 @@ import { cn } from "@/lib/utils";
 import Testimonials from "@/app/components/testimonials";
 import Countdown from "@/app/components/countdown";
 import FAQ from "@/app/components/faq";
-import CoolShapesBackground from "@/app/components/CoolShapesBackground";
 import FinalCTA from "@/app/components/final-cta";
 import HeroImg from "@/app/components/hero-img";
 // import {ManyFeatures} from "@/app/components/many-features";
