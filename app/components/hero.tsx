@@ -46,7 +46,7 @@ const Hero = () => {
         >
           <Balancer>
             {/* نساعدك في التفوق في اختبارات القدرات والتحصيلي وإعداد ملف قبول متميز */}
-            حلمك لتحقيق الـ ١٠٠ في القدرات يبدأ هنا
+            حلمك لتحقيق الـ 100 في القدرات يبدأ هنا
           </Balancer>
         </motion.h3>
         <div className="mt-8 flex justify-center gap-4 md:mt-12">
@@ -55,7 +55,7 @@ const Hero = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <Link href={`/courses/${encodeURIComponent("qudurat")}`} passHref>
+            <Link href="/#final">
               <motion.button
                 className="mt-8 flex text-muted-foreground items-center gap-2"
                 initial={{ scale: 0.8 }}
@@ -63,8 +63,8 @@ const Hero = () => {
                 transition={{ duration: 0.6 }}
               >
                 <motion.div
-                  animate={{ translateY: [0, -5, 0] }}
-                  transition={{ repeat: Infinity, duration: 2 }}
+                  animate={{ translateY: [0, -6, 0] }}
+                  transition={{ repeat: Infinity, duration: 1.5 }}
                 >
                   <ArrowDown />
                 </motion.div>

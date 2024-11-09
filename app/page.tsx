@@ -56,7 +56,11 @@ export default function Home() {
         </Container>
       </Section>
       
+      <Section id="final">
+        <Container>
       <FinalCTA/>
+      </Container>
+      </Section>
       {/* <ManyFeatures/> */}
       <Footer />
     </Main>
