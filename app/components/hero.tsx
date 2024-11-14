@@ -19,8 +19,37 @@ import BookCover from "@/public/images/book-cover.webp";
 
 // Import the CoolShapes component
 import { Coolshape } from "coolshapes-react";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+    // states for shape sizes
+    const [shapeSizes, setShapeSizes] = useState({
+      star: 40,
+      moon: 30,
+      misc: 35,
+      ellipse: 25,
+    });
+  
+    // adjust shape sizes based on screen width
+    useEffect(() => {
+      const updateShapeSizes = () => {
+        const width = window.innerWidth;
+        if (width >= 1024) {
+          setShapeSizes({ star: 180, moon: 160, misc: 150, ellipse: 130 });
+        } else if (width >= 768) {
+          setShapeSizes({ star: 120, moon: 100, misc: 90, ellipse: 80 });
+        } else {
+          setShapeSizes({ star: 80, moon: 70, misc: 75, ellipse: 65 });
+        }
+      };
+  
+      updateShapeSizes();
+      window.addEventListener("resize", updateShapeSizes);
+  
+      // cleanup listener
+      return () => window.removeEventListener("resize", updateShapeSizes);
+    }, []);
+    
   return (
     <Section>
       <Container className="z-50 flex-center flex-col items-end text-center mt-24 mb-12">
@@ -76,17 +105,17 @@ const Hero = () => {
 
         {/* Sorrounding them with <div>'s here because size is not an intrinsic 
             attribute of the cool shapes*/}
-        <div className="absolute top-20 left-10 z-10 max-w-xs max-h-xs sm:max-w-sm sm:max-h-sm md:max-w-md md:max-h-md lg:max-w-lg lg:max-h-lg">
-          <Coolshape type="star" index={7} />
+        <div className="absolute top-20 left-10 z-10">
+          <Coolshape type="star" index={7} size={shapeSizes.star} />
         </div>
-        <div className="absolute top-10 right-20 z-20 max-w-xs max-h-xs sm:max-w-sm sm:max-h-sm md:max-w-md md:max-h-md lg:max-w-lg lg:max-h-lg">
-          <Coolshape type="moon" index={13} />
+        <div className="absolute top-10 right-20 z-20">
+          <Coolshape type="moon" index={13} size={shapeSizes.moon} />
         </div>
-        <div className="absolute inset-center z-30 max-w-xs max-h-xs sm:max-w-sm sm:max-h-sm md:max-w-md md:max-h-md lg:max-w-lg lg:max-h-lg">
-          <Coolshape type="misc" index={7} />
+        <div className="absolute inset-center z-30">
+          <Coolshape type="misc" index={7} size={shapeSizes.misc} />
         </div>
-        <div className="absolute bottom-50 right-40 z-40 max-w-xs max-h-xs sm:max-w-sm sm:max-h-sm md:max-w-md md:max-h-md lg:max-w-lg lg:max-h-lg">
-          <Coolshape type="ellipse" index={1} />
+        <div className="absolute bottom-50 right-40 z-40">
+          <Coolshape type="ellipse" index={1} size={shapeSizes.ellipse} />
         </div>
 
 
