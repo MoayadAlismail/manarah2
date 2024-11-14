@@ -85,7 +85,7 @@ const Hero = () => {
         <div className="absolute inset-center z-30 w-14 h-14 md:w-36 md:h-36 lg:w-48 lg:h-48">
           <Coolshape type="misc" index={7} size={90} />
         </div>
-        <div className="absolute bottom-10 right-40 z-40 w-10 h-10 md:w-24 md:h-24 lg:w-36 lg:h-36">
+        <div className="absolute bottom-50 right-40 z-40 w-10 h-10 md:w-24 md:h-24 lg:w-36 lg:h-36">
           <Coolshape type="ellipse" index={1} size={70} />
         </div>
       </Container>

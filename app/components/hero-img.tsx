@@ -27,8 +27,8 @@ animate={{ opacity: 1 }}
 transition={{ duration: 0.5, delay: 0.4 }}
 >
 <Image
-  src="/Users/moayadalismail/Desktop/manarah2/active_speaker_view.png"
-  alt=""
+  src="/images/hero-img.jpeg"
+  alt="Hero Image"
   width={1100}
   height={550}
   priority={true}

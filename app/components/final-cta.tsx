@@ -73,7 +73,7 @@ import Particles from "@/app/components/ui/particles";
           transition={{ duration: 0.5 }} // Animation duration
         >
         <span className="pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-500/80 bg-clip-text text-center text-6xl font-semibold leading-none text-transparent dark:from-white dark:to-slate-900/10 leading-[1.2] py-4">
-        انضم إلى عشرات المتوفقين
+        انضم إلى عشرات المتفوقين
         </span>
           {/* <h1 className="text-4xl font-bold text-center">انضم إلى عشرات الطلاب المتوفقين</h1> */}
           <h4 className="text-xl text-muted-foreground text-center z-30">
