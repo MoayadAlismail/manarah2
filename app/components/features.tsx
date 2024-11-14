@@ -84,9 +84,9 @@ const Feature = () => {
               مميزات الدورة
             </Balancer>
           </h3>
-          <div className="absolute z-[0] ">
-            <Coolshape className="my-4" type="wheel" index={1} noise={true} />
-          </div>
+          <div className="my-4 w-12 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24">
+              <Coolshape type="wheel" index={1} noise={true} />
+            </div>
           <div className="mt-6 grid gap-6 md:mt-12 md:grid-cols-2 z-30">
             {featureText.map(
               ({ icon, title, description, href, cta }, index) => (

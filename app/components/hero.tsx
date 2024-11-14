@@ -74,30 +74,20 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        <Coolshape
-          className="absolute top-20 left-10 z-10"
-          type="star"
-          index={7}
-          size={220}
-        />
-        <Coolshape
-          className="absolute top-10 right-20 z-20"
-          type="moon"
-          index={13}
-          size={180}
-        />
-        <Coolshape
-          className="absolute center-50 z-30"
-          type="misc"
-          index={7}
-          size={200}
-        />
-        <Coolshape
-          className="absolute center-10 right-40 z-40"
-          type="ellipse"
-          index={1}
-          size={150}
-        />
+        {/* Sorrounding them with <div>'s here because size is not an intrinsic 
+            attribute of the cool shapes*/}
+        <div className="absolute top-20 left-10 z-10 w-16 h-16 md:w-32 md:h-32 lg:w-44 lg:h-44">
+          <Coolshape type="star" index={7} size={100} />
+        </div>
+        <div className="absolute top-10 right-20 z-20 w-12 h-12 md:w-28 md:h-28 lg:w-40 lg:h-40">
+          <Coolshape type="moon" index={13} size={80} />
+        </div>
+        <div className="absolute inset-center z-30 w-14 h-14 md:w-36 md:h-36 lg:w-48 lg:h-48">
+          <Coolshape type="misc" index={7} size={90} />
+        </div>
+        <div className="absolute bottom-10 right-40 z-40 w-10 h-10 md:w-24 md:h-24 lg:w-36 lg:h-36">
+          <Coolshape type="ellipse" index={1} size={70} />
+        </div>
       </Container>
     </Section>
   );

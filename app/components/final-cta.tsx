@@ -35,10 +35,20 @@ import Particles from "@/app/components/ui/particles";
   return (
     <Section className="px-4 relative">
       <Container>
-        <Coolshape className="absolute top-10 left-10" size={100} color="rgba(255, 0, 0, 0.5)" />
-        <Coolshape className="absolute top-20 right-20" size={150} color="rgba(0, 255, 0, 0.5)" />
-        <Coolshape className="absolute bottom-10 left-20" size={120} color="rgba(0, 0, 255, 0.5)" />
-        <Coolshape className="absolute bottom-20 right-10" size={80} color="rgba(255, 255, 0, 0.5)" />
+        {/* Sorrounding them with <div>'s here because size is not an intrinsic 
+            attribute of the cool shapes*/}
+        <div className="absolute top-10 left-10 w-12 h-12 md:w-24 md:h-24">
+          <Coolshape size={50} color="rgba(255, 0, 0, 0.5)" />
+        </div>
+        <div className="absolute top-20 right-20 w-16 h-16 md:w-32 md:h-32">
+          <Coolshape size={75} color="rgba(0, 255, 0, 0.5)" />
+        </div>
+        <div className="absolute bottom-10 left-20 w-14 h-14 md:w-28 md:h-28">
+          <Coolshape size={60} color="rgba(0, 0, 255, 0.5)" />
+        </div>
+        <div className="absolute bottom-20 right-10 w-10 h-10 md:w-20 md:h-20">
+          <Coolshape size={40} color="rgba(255, 255, 0, 0.5)" />
+        </div>
 
         {/* profile pics */}
         <div>
