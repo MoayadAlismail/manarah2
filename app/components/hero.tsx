@@ -76,18 +76,20 @@ const Hero = () => {
 
         {/* Sorrounding them with <div>'s here because size is not an intrinsic 
             attribute of the cool shapes*/}
-        <div className="absolute top-20 left-10 z-10 w-16 h-16 md:w-32 md:h-32 lg:w-44 lg:h-44">
-          <Coolshape type="star" index={7} size={100} />
+        <div className="absolute top-20 left-10 z-10 max-w-xs max-h-xs sm:max-w-sm sm:max-h-sm md:max-w-md md:max-h-md lg:max-w-lg lg:max-h-lg">
+          <Coolshape type="star" index={7} />
         </div>
-        <div className="absolute top-10 right-20 z-20 w-12 h-12 md:w-28 md:h-28 lg:w-40 lg:h-40">
-          <Coolshape type="moon" index={13} size={80} />
+        <div className="absolute top-10 right-20 z-20 max-w-xs max-h-xs sm:max-w-sm sm:max-h-sm md:max-w-md md:max-h-md lg:max-w-lg lg:max-h-lg">
+          <Coolshape type="moon" index={13} />
         </div>
-        <div className="absolute inset-center z-30 w-14 h-14 md:w-36 md:h-36 lg:w-48 lg:h-48">
-          <Coolshape type="misc" index={7} size={90} />
+        <div className="absolute inset-center z-30 max-w-xs max-h-xs sm:max-w-sm sm:max-h-sm md:max-w-md md:max-h-md lg:max-w-lg lg:max-h-lg">
+          <Coolshape type="misc" index={7} />
         </div>
-        <div className="absolute bottom-50 right-40 z-40 w-10 h-10 md:w-24 md:h-24 lg:w-36 lg:h-36">
-          <Coolshape type="ellipse" index={1} size={70} />
+        <div className="absolute bottom-50 right-40 z-40 max-w-xs max-h-xs sm:max-w-sm sm:max-h-sm md:max-w-md md:max-h-md lg:max-w-lg lg:max-h-lg">
+          <Coolshape type="ellipse" index={1} />
         </div>
+
+
       </Container>
     </Section>
   );
