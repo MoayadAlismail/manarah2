@@ -19,23 +19,24 @@ import Logo from "@/public/logo.svg";
 import BookCover from "@/public/images/book-cover.webp";
 
 const HeroImg = () => {
-    return (
-<motion.div 
-className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
-initial={{ opacity: 0 }} 
-animate={{ opacity: 1 }} 
-transition={{ duration: 0.5, delay: 0.4 }}
->
-<Image
-  src="/images/hero-img.jpeg"
-  alt="Hero Image"
-  width={1100}
-  height={550}
-  priority={true}
-  className="not-prose h-full w-full object-cover object-bottom"
-/>
-<BorderBeam size={300} duration={14} delay={10} />
-</motion.div>
-);
+  return (
+      <motion.div 
+          className="relative flex w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow-xl"
+          initial={{ opacity: 0 }} 
+          animate={{ opacity: 1 }} 
+          transition={{ duration: 0.5, delay: 0.4 }}
+      >
+          <Image
+              src="/images/hero-img.jpeg"
+              alt="Hero Image"
+              width={0} // Dynamically size based on the parent container
+              height={0} // Dynamically size based on the parent container
+              sizes="100vw" // Takes the full viewport width
+              priority={true}
+              className="not-prose w-full h-auto object-cover object-bottom"
+          />
+          <BorderBeam size={300} duration={14} delay={10} />
+      </motion.div>
+  );
 }
 export default HeroImg;
