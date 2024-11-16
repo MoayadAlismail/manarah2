@@ -52,12 +52,12 @@ export default function Footer() {
             منصة قدرة ٢٠٢٤
           </p>
           <div className="flex gap-2">
-            <Link href="https://instagram.com/QudrahSA" target="_blank" rel="noopener noreferrer">
+            <Link href="https://instagram.com/Qudrah_Org" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="icon">
                 <Instagram />
               </Button>
             </Link>
-            <Link href="https://twitter.com/ManarahKSA" target="_blank" rel="noopener noreferrer">
+            <Link href="https://twitter.com/Manarah_Org" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="icon">
                 <Twitter />
               </Button>
