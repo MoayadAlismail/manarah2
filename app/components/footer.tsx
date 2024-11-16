@@ -67,7 +67,7 @@ export default function Footer() {
                 <Phone />
               </Button>
             </Link>
-            <Link href="contactqudrah@gmail.com" target="_blank" rel="noopener noreferrer">
+            <Link href="mailto:contactqudrah@gmail.com" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="icon">
                 <Mail />
               </Button>
