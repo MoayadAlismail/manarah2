@@ -57,7 +57,7 @@ export default function Footer() {
                 <Instagram />
               </Button>
             </Link>
-            <Link href="https://twitter.com/Manarah_Org" target="_blank" rel="noopener noreferrer">
+            <Link href="https://twitter.com/Qudrah_Org" target="_blank" rel="noopener noreferrer">
               <Button variant="outline" size="icon">
                 <Twitter />
               </Button>
