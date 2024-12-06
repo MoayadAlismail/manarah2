@@ -11,7 +11,7 @@ import {
 } from "react";
 import confetti from "canvas-confetti";
 
-type ConfettiInstance = typeof confetti;
+type ConfettiInstance = ReturnType<typeof confetti.create>;
 
 export interface ConfettiRef {
   fire: (opts?: confetti.Options) => void;
@@ -37,13 +37,10 @@ const Confetti = forwardRef<ConfettiRef, Props>((props, ref) => {
   const instanceRef = useRef<ConfettiInstance | null>(null);
 
   const canvasRef = useCallback(
-    (node: HTMLCanvasElement) => {
+    (node: HTMLCanvasElement | null) => {
       if (node !== null) {
         if (instanceRef.current) return;
-        instanceRef.current = confetti.create(node, {
-          ...globalOptions,
-          resize: true,
-        });
+        instanceRef.current = confetti.create(node, globalOptions);
       } else {
         if (instanceRef.current) {
           instanceRef.current.reset();

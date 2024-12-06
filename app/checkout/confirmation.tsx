@@ -1,4 +1,5 @@
 "use client";
+export const dynamic = 'force-dynamic'
 import { useSearchParams, useRouter } from 'next/navigation';
 import { GridPattern } from "@/app/components/ui/animated-grid-pattern";
 import { cn } from "@/lib/utils";
