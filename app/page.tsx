@@ -27,8 +27,8 @@ export default function Home() {
                 "inset-x-0 inset-y-[-30%] h-[100%] w-[100%] skew-y-12",
               )}
               />
-          {/* <Countdown/> */}
           <Hero/>
+          <Countdown/>
         </Container>
       </Section>
 

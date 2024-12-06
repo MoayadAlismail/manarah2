@@ -3,19 +3,19 @@ import Marquee from "@/app/components/ui/marquee";
 
 const reviews = [
   {
-    name: "محمد", // Jack
+    name: "معاذ", // Jack
     username: "@jack",
     body: "طريقة الشرح والاشياء المضحكة في منتصف المحاضرة", 
     img: "https://avatar.vercel.sh/jack",
   },
   {
-    name: "نورة", // Jill
+    name: "ليان", // Jill
     username: "@jill",
     body: "تسلم ايدك على هذي الدورة الحلوة كانت خفيفة لطيفة ما قصرت فيها ابدا", 
     img: "https://avatar.vercel.sh/jill",
   },
   {
-    name: "علي", // John
+    name: "حسن", // John
     username: "@john",
     body: "شرح الاستاذ عثمان وتوضيحه لجميع استفساراتنا وإجابته على جميع الأسئلة المتعلقة بالدرس وأيضًا طريقة إيصال المعلومات",
     img: "https://avatar.vercel.sh/john",
@@ -27,13 +27,13 @@ const reviews = [
     img: "https://avatar.vercel.sh/jane",
   },
   {
-    name: "عبدالله", // Jenny
+    name: "عبدالمحسن", // Jenny
     username: "@jenny",
     body: "الشرح جميل جدا والمعلم الله يجزاه خير ماقصر وتضحك الرياكشنات الي يحطها بين كل صفحه",
     img: "https://avatar.vercel.sh/jenny",
   },
   {
-    name: "جاسم", // James
+    name: "إبراهيم", // James
     username: "@james",
     body: "وضوح العرض / شرح مفصل و سهل", 
     img: "https://avatar.vercel.sh/james",

@@ -37,7 +37,7 @@ export function NavBar() {
                 <Button
                   variant="ghost"
                   className="font-alexandria"
-                  onClick={() => smoothScroll("#courses")}
+                  onClick={() => smoothScroll("#features")}
                 >
                   مميزات الدورة
                 </Button>

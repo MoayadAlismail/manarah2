@@ -84,6 +84,13 @@ const Hero = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
+          {/* <Link href="/checkout/qudurat">
+          <RainbowButton 
+            className="mt-8 h-12 px-8 text-lg"
+          >
+            سجل الآن
+          </RainbowButton> */}
+        {/* </Link> */}
             <Link href="/#final">
               <motion.button
                 className="mt-8 flex text-muted-foreground items-center gap-2"
