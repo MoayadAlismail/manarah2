@@ -90,7 +90,8 @@ const CTA = () => {
           <h4 className="text-xl text-muted-foreground text-center z-30">
             <Balancer>فرصتك لتحقيق أعلى الدرجات تبدأ هنا</Balancer>
           </h4>
-          <Link href="/checkout">
+          {/* <Link href="/checkout"> */}
+          <Link href="https://chat.whatsapp.com/Ir5l5cFA7Q78tfeiMHEkUz">
           <RainbowButton>
             {/* <Link href="https://chat.whatsapp.com/Ir5l5cFA7Q78tfeiMHEkUz"> */}
               !سجل الآن
